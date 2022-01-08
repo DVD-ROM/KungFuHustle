@@ -1,20 +1,20 @@
 {
   "profile": {
-    "greeting": "Welcome to the UBC Kung Fu Club! Click get started below to connect with us!"
+    "greeting": "Hi {user_first_name}! Welcome to the UBC Kung Fu Club. Click \"Get started\" below to connect with us!"
   },
   "menu": {
     "events": "View upcoming events",
     "class": "See class schedules",
     "exec": "Talk to a club exec",
-    "bye": "Bye!"
+    "restart": "Restart"
   },
   "get_started": {
-    "welcome": "Hi {{userFirstName}}! I am Speedracer, one of the lions belonging to the UBC Kung Fu Club. I am friendly and I do not bite!",
+    "welcome": "Hi {userFirstName}! I am Speedracer, one of the lions belonging to the UBC Kung Fu Club. I am friendly and I do not bite!",
     "guidance": "Please select an option from the menu below.",
     "help": "How can I help you today?"
   },
   "leadgen": {
-    "promo": "Hi {{userFirstName}}, finding great outfits is now easier and more convenient.",
+    "promo": "Hi {userFirstName}, finding great outfits is now easier and more convenient.",
     "title": "50% Coupon",
     "subtitle": "Here is your coupon",
     "apply": "Apply discount",
@@ -50,14 +50,14 @@
     "billing": "Billing Issues",
     "other": "Other",
     "appointment": "Thank you for wanting to make an appointment.",
-    "issue": "Hi {{userFirstName}}, my name is {{agentFirstName}}, I'm here to assist you with any questions you might have about your {{topic}}.",
-    "default": "Hi {{userFirstName}}, my name is {{agentFirstName}}, I'm here to assist you today. How can I help you?",
-    "style": "Hi {{userFirstName}}, my name is {{agentFirstName}}, I’m here to answer questions you might have on our summer styles",
+    "issue": "Hi {userFirstName}, my name is {agentFirstName}, I'm here to assist you with any questions you might have about your {topic}.",
+    "default": "Hi {userFirstName}, my name is {agentFirstName}, I'm here to assist you today. How can I help you?",
+    "style": "Hi {userFirstName}, my name is {agentFirstName}, I’m here to answer questions you might have on our summer styles",
     "end": "This is as far as the demo goes. Leverage the power of the messenger platform for your business. See https://fb.me/get-sample-oc to learn how to build a similar experience",
     "help": "Help"
   },
   "survey": {
-    "prompt": "Hi, want to get quick feedback on your recent experience with {{agentFirstName}}",
+    "prompt": "Hi, want to get quick feedback on your recent experience with {agentFirstName}",
     "positive": "Thanks for the feedback",
     "neutral": "Thanks for the feedback, if there something we should improve feel free to comment with #suggestion",
     "negative": "Thanks for telling us. Sorry to hear that, if there something we can do to turn this let us know",
@@ -67,7 +67,7 @@
     "prompt": "Thanks for visiting our store, be sure to check out all the great styles we have on the summer section."
   },
   "fallback": {
-    "any": "Sorry, but I don’t recognize \"{{message}}\".",
+    "any": "Sorry, but I don’t recognize \"{message}\".",
     "attachment": "Thanks for sending this attachment, we can connect you to an agent to review it or we can start over"
   }
 }

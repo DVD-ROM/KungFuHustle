@@ -10,8 +10,8 @@ def main():
 
     """ if your .env file specifies a DJANGO SETTINGS MODULE variable (which implies .env exists) 
         then tell django to use the settings file recommended by the .env file. Otherwise, use default (above) """
-    # if os.getenv('DJANGO_SETTINGS_MODULE'):
-    #     os.environ['DJANGO_SETTINGS_MODULE'] = os.getenv('DJANGO_SETTINGS_MODULE')
+    if os.getenv('DJANGO_SETTINGS_MODULE'):
+        os.environ['DJANGO_SETTINGS_MODULE'] = os.getenv('DJANGO_SETTINGS_MODULE')
 
     try:
         from django.core.management import execute_from_command_line

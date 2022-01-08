@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import fbView
+from .views import Webhook, Profile
 
 urlpatterns = [
-	path('webhook/', fbView.as_view()),
+	path('webhook/', Webhook.as_view()),
+	path('profile/', Profile.as_view())
 ]

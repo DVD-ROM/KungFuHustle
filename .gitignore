@@ -1,1 +1,2 @@
 *.env
+fb/__pycache__/

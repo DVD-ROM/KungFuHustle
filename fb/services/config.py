@@ -23,8 +23,7 @@ class Config:
     fbAppSecret = os.getenv('FACEBOOK_APP_SECRET')
     verifyToken = os.getenv('VERIFY_TOKEN')
     appUrl = os.getenv('APP_URL')
-    shopUrl = os.getenv('SHOP_URL')
-    personas = {}
+    shopUrl = "hi"
     port = os.getenv('PORT') or 3000
 
 
@@ -33,6 +32,13 @@ class Config:
     
     def webhookUrl():
         return f'{Config.apiUrl}/webhook'
+
+
+    # def pushPersona(persona):
+    #     Config.personas[persona["name"]]
+
+    def whitelistedDomains():
+        return [Config.appUrl, Config.shopUrl]
 
     def checkEnvVariables():
         for varName in ENV_VARS:

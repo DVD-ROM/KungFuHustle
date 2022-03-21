@@ -19,5 +19,5 @@ import os
 
 urlpatterns = [
     path(os.getenv('SECRET_ADMIN_URL') + '/admin/', admin.site.urls),
-    path('', include('fb.urls')),
+    path('fb/', include('fb.urls'))
 ]

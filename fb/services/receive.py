@@ -1,8 +1,9 @@
-from response import Response
+from fb.services.response import Response
+from fb.services.graph_api import GraphApi
+import threading
 
 class Receive:
     def __init__(self, webHookEvent):
-        self.user = webHookEvent['sender']
         self.webhookEvent = webHookEvent
 
     def handleMessage(self):
@@ -11,30 +12,48 @@ class Receive:
         try: 
             if (event.message):
                 message = event.message
-                if (message.text):
-                    responses = self.handleTextMessage()
-                elif (message.postback):
+                if (message.postback):
                     responses = self.handlePostback()
         except BaseException as error:
             print('An exception occurred: {}'.format(error))
             responses = {"text": "An unexpected error occurred"}
 
+        if isinstance(responses, list):
+            delay = 0
+            for response in responses: 
+                self.sendMessage(response, delay*2)
+                delay += 1
+        else: 
+            self.sendMessage(responses)
+            
+    def handlePostback(self): 
+        postback = self.webhookEvent.postback
 
-    def handleTextMessage(self): 
-        event = self.webhookEvent
-    
-        print(f'Received text: {event["message"]["text"]} for {self.user["id"]}')
+        if postback["payload"]:
+            payload = postback["payload"] 
+        elif postback["referral"] and postback["referral"]["type"] == "OPEN_THREAD":
+            payload = postback["referral"]["ref"]
+
+        return self.handlePayload(payload.upper())
+
+    def handlePayload(self, payload):
+        print(f'Received Payload: {payload} for {self.webhookEvent["sender"]["id"]}')
+
+        responses = Response.makeMessage(payload.lower())
         
-        greeting = self.firstTrait(event['message']['nlp'], "wit$greetings")
+        return responses
 
-        message = event.message.text.rstrip().lower()
+    def sendMessage(self, response, delay=0):
+        if ("delay" in response):
+            delay = response["delay"]
+            response.pop("delay")
         
-        if (greeting and greeting.confidence > 0.8):
-            response = Response.makeNuxMessage(self.user)
+        requestBody = {
+            "recipient": {
+                "id": self.webhookEvent["sender"]["id"],
+            }, 
+            "message": response
+        }
 
+        threading.Timer(delay, GraphApi.callSendApi(requestBody)).start()
 
-    def handlePostback(): 
-        print("hi")
-
-    def firstTrait():
-        print("hi")

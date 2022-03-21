@@ -1,73 +1,182 @@
 {
   "profile": {
-    "greeting": "Hi {user_first_name}! Welcome to the UBC Kung Fu Club. Click \"Get started\" below to connect with us!"
+    "greeting": "Hello! Click \"Get started\" below to connect with us!"
   },
   "menu": {
-    "events": "View upcoming events",
-    "class": "See class schedules",
-    "exec": "Talk to a club exec",
-    "restart": "Restart"
+    "about": "About the club",
+    "contact": "Contact information",
+    "class_info": "Class information & costs",
+    "class_schedule": "This week's class schedule",
+    "demo": "Performances"
   },
   "get_started": {
-    "welcome": "Hi {userFirstName}! I am Speedracer, one of the lions belonging to the UBC Kung Fu Club. I am friendly and I do not bite!",
-    "guidance": "Please select an option from the menu below.",
-    "help": "How can I help you today?"
+    "welcome": "Welcome to the UBC Kung Fu Club! Thank you for stopping by.",
+    "faq": "To immediately receive answers to some frequently asked questions, you may select the menu icon at the bottom right corner of this chat (next to the emoji icon).",
+    "talk": "You can also just send us a message to ask about anything. We will respond as soon as we can!"
   },
-  "leadgen": {
-    "promo": "Hi {userFirstName}, finding great outfits is now easier and more convenient.",
-    "title": "50% Coupon",
-    "subtitle": "Here is your coupon",
-    "apply": "Apply discount",
-    "coupon": "Added your coupon to this thread, you can now check out the discounted summer collection"
+  "contact_info": {
+    "overview": "Scroll to the right in the following menu to see all our channels!",
+    "contact_templates": "templates"
   },
-  "curation": {
-    "prompt": "Here is the latest class schedule. To see more information  ",
-    "occasion": "Great! Let's get started. First, is there an occasion in mind?",
-    "price": "How much are you looking to spend?",
-    "me": "For me!",
-    "someone": "Someone else",
-    "work": "Work",
-    "dinner": "Dinner",
-    "party": "Party",
-    "sales": "Talk to sales",
-    "shop": "Shop this look",
-    "title": "Summer collection 2021",
-    "subtitle": "Featured outfit",
-    "show": "Another look"
+  "about_club": {
+    "prompt": "The UBC Kung Fu Club is the oldest martial arts club at the University of British Columbia. Here, we focus on learning the application and culture of martial arts, as well as maintaining a healthy body and mind.",
+    "classes": "We offer classes in three different types of kung fu: wushu, sanshou and lion dance. All experience levels are welcome! Many of our members are beginners.",
+    "demos": "You can also book a wushu performance or lion dance from our club!",
+    "about_us_templates": "templates"
   },
-  "order": {
-    "prompt": "We'll be happy to help you. Select from the following",
-    "search": "Search by order number",
-    "account": "Link my Account",
-    "dialog": "Account linking dialog",
-    "searching": "Searching for your last order...",
-    "number": "Sure, please write the order number",
-    "status": "Your order is on it’s way, expect to have it in 3 days."
+  "class_info": {
+    "prompt": "We offer three types of kung fu classes: sanshou, wushu and lion dance.",
+    "kung_fu_templates": "templates",
+    "costs": "Your first class for any of the above 3 types is free! After that, our fees are the following:\n$50 per semester for 1 type of classes\n$75 per semester for 2 types of classes\n$85 per semester for 3 types of classes",
+    "times": "To join a class, just show up!\nSanshou class: Mondays 5-7 PM\nWushu class: Wednesdays 5-7 PM\nLion dance class: Friday 6-8 PM",
+    "schedule": "All classes usually take place in the AMS Nest. The exact time and room for each class may be slightly different for some weeks. To stay up-to-date, you can follow our Instagram / Facebook page, or just view our latest practice times below.",
+    "options": [
+      {
+        "type": "postback",
+        "title": "See our Facebook / Instagram / email information",
+        "payload": "CONTACT_INFO"
+      },
+      {
+        "type": "postback",
+        "title": "See our upcoming public performances",
+        "payload": "FUTURE_DEMOS"
+      }
+    ]
   },
-  "care": {
-    "prompt": "To connect you with the right team please let me know what this is about?",
-    "order": "Order Inquiries",
-    "billing": "Billing Issues",
-    "other": "Other",
-    "appointment": "Thank you for wanting to make an appointment.",
-    "issue": "Hi {userFirstName}, my name is {agentFirstName}, I'm here to assist you with any questions you might have about your {topic}.",
-    "default": "Hi {userFirstName}, my name is {agentFirstName}, I'm here to assist you today. How can I help you?",
-    "style": "Hi {userFirstName}, my name is {agentFirstName}, I’m here to answer questions you might have on our summer styles",
-    "end": "This is as far as the demo goes. Leverage the power of the messenger platform for your business. See https://fb.me/get-sample-oc to learn how to build a similar experience",
-    "help": "Help"
+  "templates": {
+    "sanshou_class": {
+      "paragraph1": "Sanshou, also known as sanda, is a Chinese self-defense system and also a combat sport. Sanshou (pronounced san-show) refers to free fighting skills and literally means \"free hands\". A traditional Sanshou fighter is proficient in ti (kicking), da (striking), shuai (take-downs) and na (grappling)."
+    },
+    "wushu_class": {
+      "paragraph1": "Wushu literally translates into \"martial arts\". With this generic definition you can use wushu to describe a whole range of martial arts. In our case, wushu is a discipline that has its earliest and most recognized root from Shao Lin. It consists of tens of thousands of different external and internal styles with some well known styles such as shaolin quan, taiji quan, xingyi quan and many more. Wushu has become a popular international sport that everyone can learn and use to attain its inherent benefits such as improving one's health, balance, flexibility, coordination, speed, reaction time and power.",
+      "paragraph2": "Forms, also known as taolu, is comprised of martial arts patterns that contains gymnastics and contemporary dance components. The forms are composed of basic stances, kicks, punches, sweeps, balances, and acrobatic movements in the traditional Chinese martial art style and can be altered to highlight one's strengths and potentials."
+    },
+    "lion_dance": {
+      "paragraph1": "Lion Dance is a form of traditional dance in the Chinese culture in which two performers mimic a lion's movement inside a lion costume. A lion is composed of two people and is performed in rhythm with an additional drum, cymbal, and gong. Lion Dance is performed mainly during festivals in the Chinese New Year to spread good luck, prosperity, longevity, and fortune. Our lion dance classes emphasize teamwork and coordination. After all, it takes two people to dance in the lion!"
+    }
   },
-  "survey": {
-    "prompt": "Hi, want to get quick feedback on your recent experience with {agentFirstName}",
-    "positive": "Thanks for the feedback",
-    "neutral": "Thanks for the feedback, if there something we should improve feel free to comment with #suggestion",
-    "negative": "Thanks for telling us. Sorry to hear that, if there something we can do to turn this let us know",
-    "suggestion": "Your suggestion has been recorded for future review by the team. If this is something we need to get back to you right now just comment \"help\""
+  "demo_inquiry": {
+    "prompt": "We perform lion dances and wushu demonstrations for various occasions, both on and off the UBC campus. Some examples include UBC club events, weddings, store openings, festivals and other celebrations. You can have lion dance performances at virtually any event, as there is no such thing as too much good luck.",
+    "contact": {
+      "text": "If you would like us to perform at your event, please feel free to contact us!",
+      "options": [
+        {
+          "type": "postback",
+          "title": "Contact us",
+          "payload": "CONTACT_INFO"
+        },
+        {
+          "type": "postback",
+          "title": "See our upcoming public performances",
+          "payload": "FUTURE_DEMOS"
+        }
+      ]
+    }
   },
-  "chat_plugin": {
-    "prompt": "Thanks for visiting our store, be sure to check out all the great styles we have on the summer section."
-  },
-  "fallback": {
-    "any": "Sorry, but I don’t recognize \"{message}\".",
-    "attachment": "Thanks for sending this attachment, we can connect you to an agent to review it or we can start over"
-  }
+  "kung_fu_templates": [
+    {
+      "title": "Sanshou Class",
+      "image_url": "https://raw.githubusercontent.com/fbsamples/original-coast-clothing/main/public/styles/male-work.jpg",
+      "subtitle": "A full-contact combat sport featuring takedowns, strikes, kicks and more.",
+      "buttons": [
+        {
+          "type": "web_url",
+          "url": "https://en.wikipedia.org/wiki/Sanda_(sport)",
+          "title": "Wikipedia"
+        },
+        {
+          "type": "postback",
+          "title": "Class info",
+          "payload": "SANSHOU_CLASS"
+        }
+      ]
+    },
+    {
+      "title": "Wushu Class",
+      "image_url": "https://raw.githubusercontent.com/fbsamples/original-coast-clothing/main/public/styles/male-work.jpg",
+      "subtitle": "A performance art emphasizing quickness, explosive power and relaxed movement.",
+      "buttons": [
+        {
+          "type": "web_url",
+          "url": "https://en.wikipedia.org/wiki/Wushu_(sport)",
+          "title": "Wikipedia"
+        },
+        {
+          "type": "postback",
+          "title": "Class info",
+          "payload": "WUSHU_CLASS"
+        }
+      ]
+    },
+    {
+      "title": "Lion Dance Class",
+      "image_url": "https://raw.githubusercontent.com/fbsamples/original-coast-clothing/main/public/styles/male-work.jpg",
+      "subtitle": "Two people perform in a lion costume to the sound of a drumbeat and gongs.",
+      "buttons": [
+        {
+          "type": "web_url",
+          "url": "https://en.wikipedia.org/wiki/Lion_dance",
+          "title": "Wikipedia"
+        },
+        {
+          "type": "postback",
+          "title": "Class info",
+          "payload": "LION_DANCE_CLASS"
+        }
+      ]
+    }
+  ],
+  "contact_templates": [
+    {
+      "title": "Instagram",
+      "subtitle": "@ubckungfu",
+      "buttons": [
+        {
+          "type": "web_url",
+          "url": "https://www.originalcoastclothing.com/",
+          "title": "Visit Profile"
+        }
+      ]
+    },
+    {
+      "title": "Email",
+      "subtitle": "ubckungfu@gmail.com",
+      "buttons": [
+        {
+          "type": "web_url",
+          "url": "https://www.originalcoastclothing.com/",
+          "title": "Send mail"
+        }
+      ]
+    },
+    {
+      "title": "Facebook",
+      "subtitle": "UBC Kung Fu Club",
+      "buttons": [
+        {
+          "type": "web_url",
+          "url": "https://www.originalcoastclothing.com/",
+          "title": "Visit Page"
+        }
+      ]
+    }
+  ],
+  "about_us_templates": [
+    {
+      "title": "Explore our club!",
+      "image_url": "http://1.bp.blogspot.com/-Eh1rukm0-aY/VBfjwXegoDI/AAAAAAAACao/Zd7F92cTywM/s1600/ubckungfu.jpg",
+      "buttons": [
+        {
+          "type": "postback",
+          "title": "Class Information",
+          "payload": "CONTACT_INFO"
+        },
+        {
+          "type": "postback",
+          "title": "Our Performances",
+          "payload": "FUTURE_DEMOS"
+        }
+      ]
+    }
+  ]
 }

@@ -1,51 +1,40 @@
-from graph_api import GraphApi
-from config import Config
-from message_maker.substitutor import Substitutor
+from fb.services.graph_api import GraphApi
+from fb.services.config import Config
+from fb.services.message_maker.msgRetriever import MsgRetriever
 
 class Profile:
-    @staticmethod
     def setWebhook():
         GraphApi.callSubscriptionsAPI()
         GraphApi.callSubscribedApps()
 
-    @staticmethod
     def setPageFeedWebhook():
         GraphApi.callSubscriptionsAPI("feed")
         GraphApi.callSubscribedApps("feed")
 
-    @staticmethod
-    def setThread():
+    def setThread(self):
         profilePayload = {
-            **Profile.getGetStarted(),
-            **Profile.getGreeting(),
-            **Profile.getPersistentMenu()
+            **self.getGetStarted(),
+            **self.getGreeting(),
+            **self.getPersistentMenu()
         }
         GraphApi.callMessengerProfileAPI(profilePayload)
 
-    @staticmethod
-    def setGetStarted():
-        getStartedPayload = Profile.getGetStarted()
+    def setGetStarted(self):
+        getStartedPayload = self.getGetStarted()
         GraphApi.callMessengerProfileAPI(getStartedPayload)
-    
 
-
-    @staticmethod
-    def setGreeting():
-        greetingPayload = Profile.getGreeting()
+    def setGreeting(self):
+        greetingPayload = self.getGreeting()
         GraphApi.callMessengerProfileAPI(greetingPayload)
     
-    @staticmethod
-    def setPersistentMenu():
-        menuPayload = Profile.getPersistentMenu()
+    def setPersistentMenu(self):
+        menuPayload = self.getPersistentMenu()
         GraphApi.callMessengerProfileAPI(menuPayload)
 
-
-    @staticmethod
-    def setWhiteListedDomains():
-        domainPayload = Profile.getWhiteListedDomains()
+    def setWhiteListedDomains(self):
+        domainPayload = self.getWhiteListedDomains()
         GraphApi.callMessengerProfileAPI(domainPayload)
 
-    @staticmethod
     def getGetStarted():
         return {
             "get_started": {
@@ -53,54 +42,54 @@ class Profile:
             }
         }
 
-    @staticmethod
-    def getGreeting():
-        greetings = [Profile.getGreetingText()]
+    def getGreeting(self):
+        greetings = [self.getGreetingText()]
         return {
             "greeting": greetings
         }
 
-    @staticmethod
-    def getPersistentMenu():
-        menuItems = [Profile.getMenuItems()]
+
+    def getPersistentMenu(self):
+        menuItems = [self.getMenuItems()]
         return {
             "persistent_menu": menuItems
         }
 
-
-    @staticmethod
     def getGreetingText():
         greeting = {
-            "text": Substitutor.getMessageOfKey("profile.greeting")
+            "text": MsgRetriever.getMessageOfKey("self.greeting")
         }
         print(greeting)
         return greeting
 
-    @staticmethod
     def getMenuItems():
         menu = {
             "composer_input_disabled": False,
             "call_to_actions": [
                 {
-                    "title": Substitutor.getMessageOfKey("menu.events"),
+                    "title": MsgRetriever.getMessageOfKey("menu.about"),
                     "type": "postback",
-                    "payload": "TRACK_ORDER"
+                    "payload": "ABOUT_CLUB"
                 },
                 {
-                    "title": Substitutor.getMessageOfKey("menu.help"),
+                    "title": MsgRetriever.getMessageOfKey("menu.contact"),
                     "type": "postback",
-                    "payload": "CARE_HELP"
+                    "payload": "CONTACT_INFO"
                 },
                 {
-                    "title": Substitutor.getMessageOfKey("menu.suggestion"),
+                    "title": MsgRetriever.getMessageOfKey("menu.class_info"),
                     "type": "postback",
-                    "payload": "CURATION"
+                    "payload": "CLASS_INFO"
                 },
                 {
-                    "type": "web_url",
-                    "title": Substitutor.getMessageOfKey("menu.shop"),
-                    "url": Config.shopUrl,
-                    "webview_height_ratio": "full"
+                    "title": MsgRetriever.getMessageOfKey("menu.class_schedule"),
+                    "type": "postback",
+                    "payload": "CLASS_SCHEDULE"
+                },
+                {
+                    "title": MsgRetriever.getMessageOfKey("menu.demo"),
+                    "type": "postback",
+                    "payload": "DEMO_INQUIRY"
                 }
             ]
         }

@@ -3,8 +3,12 @@
 import os
 import sys
 import dotenv
+from fb.services.config import Config
+from django.core.management.commands.runserver import Command as runserver
 
 def main():
+    runserver.default_port = Config.port
+
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'kfBotProject.settings.development')
 
@@ -13,6 +17,8 @@ def main():
     if os.getenv('DJANGO_SETTINGS_MODULE'):
         os.environ['DJANGO_SETTINGS_MODULE'] = os.getenv('DJANGO_SETTINGS_MODULE')
 
+    Config.checkEnvVariables()
+    
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

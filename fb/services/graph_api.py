@@ -34,7 +34,7 @@ class GraphApi:
             print(f"Unable to callMessengerProfileAPI: code {resp.status_code}") 
 
     @staticmethod
-    def callSubscriptionsAPI(customFields):
+    def callSubscriptionsAPI(customFields=None):
         print(f'Setting app {Config.appId} callback url to {Config.webhookUrl()}')
 
         fields = "messages, messaging_postbacks, messaging_optins, " + "message_deliveries, messaging_referrals"
@@ -56,6 +56,10 @@ class GraphApi:
         headers = {
             "Content-Type": "application/json"
         }
+        print("Here is url")
+        print(url)
+        print(queryParams)
+        print(headers)
 
         resp = requests.post(url, params=queryParams, headers=headers)
         if resp.status_code == requests.codes.OK:
@@ -64,7 +68,7 @@ class GraphApi:
             print(f"Unable to callSubscriptionsAPI: code {resp.status_code}") 
 
     @staticmethod
-    def callSubscribedApps(customFields):
+    def callSubscribedApps(customFields=None):
         print(f'Subscribing app {Config.appId} to page {Config.pageId}')
 
         fields = "messages, messaging_postbacks, messaging_optins, " + "message_deliveries, messaging_referrals"

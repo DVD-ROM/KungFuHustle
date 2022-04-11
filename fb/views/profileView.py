@@ -22,14 +22,13 @@ class ProfileView(generic.View):
     def dispatch(self, request, *args, **kwargs):
         return generic.View.dispatch(self, request, *args, **kwargs) 
     
-    @validate_fb_request
+
     def get(self, request, *args, **kwargs):
-        token = self.request.GET['verify_token']
-        mode = self.request.GET['mode']
+        token = self.request.GET.get('verify_token','')
+        mode = self.request.GET.get('mode', '')
         
         if not Config.webhookUrl().startswith("https://"):
             return HttpResponse("ERROR - Need a proper API_URL in the .env file", status=200)
-        
         
         if (mode and token):
             if (token == Config.verifyToken):

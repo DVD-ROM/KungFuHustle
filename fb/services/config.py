@@ -31,7 +31,7 @@ class Config:
         return f'{Config.apiDomain}/{Config.apiVersion}'
     
     def webhookUrl():
-        return f'{Config.apiUrl}/webhook'
+        return f'{Config.apiUrl()}/webhook'
 
 
     # def pushPersona(persona):

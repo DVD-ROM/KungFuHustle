@@ -11,11 +11,11 @@ class Profile:
         GraphApi.callSubscriptionsAPI("feed")
         GraphApi.callSubscribedApps("feed")
 
-    def setThread(self):
+    def setThread():
         profilePayload = {
-            **self.getGetStarted(),
-            **self.getGreeting(),
-            **self.getPersistentMenu()
+            **Profile.getGetStarted(),
+            **Profile.getGreeting(),
+            **Profile.getPersistentMenu()
         }
         GraphApi.callMessengerProfileAPI(profilePayload)
 
@@ -42,15 +42,15 @@ class Profile:
             }
         }
 
-    def getGreeting(self):
-        greetings = [self.getGreetingText()]
+    def getGreeting():
+        greetings = [Profile.getGreetingText()]
         return {
             "greeting": greetings
         }
 
 
-    def getPersistentMenu(self):
-        menuItems = [self.getMenuItems()]
+    def getPersistentMenu():
+        menuItems = [Profile.getMenuItems()]
         return {
             "persistent_menu": menuItems
         }

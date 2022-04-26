@@ -16,14 +16,13 @@ ENV_VARS = [
 
 class Config:
     apiDomain = "https://graph.facebook.com"
-    apiVersion = "v11.0"
+    apiVersion = "v13.0"
     pageId = os.getenv('PAGE_ID')
     appId = os.getenv('APP_ID')
     fbAccessToken = os.getenv('FACEBOOK_ACCESS_TOKEN')
     fbAppSecret = os.getenv('FACEBOOK_APP_SECRET')
     verifyToken = os.getenv('VERIFY_TOKEN')
     appUrl = os.getenv('APP_URL')
-    shopUrl = "hi"
     port = os.getenv('PORT') or 3000
 
 
@@ -31,14 +30,14 @@ class Config:
         return f'{Config.apiDomain}/{Config.apiVersion}'
     
     def webhookUrl():
-        return f'{Config.apiUrl()}/webhook'
+        return f'{Config.appUrl}/fb/webhook/'
 
 
     # def pushPersona(persona):
     #     Config.personas[persona["name"]]
 
     def whitelistedDomains():
-        return [Config.appUrl, Config.shopUrl]
+        return [Config.appUrl]
 
     def checkEnvVariables():
         for varName in ENV_VARS:

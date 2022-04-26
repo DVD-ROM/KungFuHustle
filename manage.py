@@ -7,6 +7,7 @@ from fb.services.config import Config
 from django.core.management.commands.runserver import Command as runserver
 
 def main():
+    print("invoking main method")
     runserver.default_port = Config.port
 
     """Run administrative tasks."""
@@ -17,6 +18,7 @@ def main():
     if os.getenv('DJANGO_SETTINGS_MODULE'):
         os.environ['DJANGO_SETTINGS_MODULE'] = os.getenv('DJANGO_SETTINGS_MODULE')
 
+    print("checking environment variables")
     Config.checkEnvVariables()
     
     try:

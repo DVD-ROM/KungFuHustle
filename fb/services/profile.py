@@ -3,20 +3,28 @@ from fb.services.config import Config
 from fb.services.message_maker.msgRetriever import MsgRetriever
 
 class Profile:
+    def __init__(self):
+        return
+
+    @staticmethod
     def setWebhook():
         GraphApi.callSubscriptionsAPI()
         GraphApi.callSubscribedApps()
 
+    @staticmethod
     def setPageFeedWebhook():
         GraphApi.callSubscriptionsAPI("feed")
         GraphApi.callSubscribedApps("feed")
 
+    @staticmethod
     def setThread():
         profilePayload = {
             **Profile.getGetStarted(),
             **Profile.getGreeting(),
             **Profile.getPersistentMenu()
         }
+        print("here is profile payload")
+        print(profilePayload)
         GraphApi.callMessengerProfileAPI(profilePayload)
 
     def setGetStarted(self):
@@ -36,6 +44,7 @@ class Profile:
         GraphApi.callMessengerProfileAPI(domainPayload)
 
     def getGetStarted():
+        print("get started")
         return {
             "get_started": {
                 "payload": "GET_STARTED"
@@ -43,6 +52,7 @@ class Profile:
         }
 
     def getGreeting():
+        print("get greeting")
         greetings = [Profile.getGreetingText()]
         return {
             "greeting": greetings
@@ -50,6 +60,7 @@ class Profile:
 
 
     def getPersistentMenu():
+        print("get persistent menu")
         menuItems = [Profile.getMenuItems()]
         return {
             "persistent_menu": menuItems
@@ -57,13 +68,15 @@ class Profile:
 
     def getGreetingText():
         greeting = {
-            "text": MsgRetriever.getMessageOfKey("self.greeting")
+            "locale": "default",
+            "text": MsgRetriever.getMessageOfKey("profile.greeting")
         }
         print(greeting)
         return greeting
 
     def getMenuItems():
         menu = {
+            "locale": "default",
             "composer_input_disabled": False,
             "call_to_actions": [
                 {

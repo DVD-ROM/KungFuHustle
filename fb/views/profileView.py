@@ -26,22 +26,24 @@ class ProfileView(generic.View):
     def get(self, request, *args, **kwargs):
         token = self.request.GET.get('verify_token','')
         mode = self.request.GET.get('mode', '')
-        
+        print(f"the mode is {mode} and token is {token}")
         if not Config.webhookUrl().startswith("https://"):
             return HttpResponse("ERROR - Need a proper API_URL in the .env file", status=200)
         
+        profile = Profile()
         if (mode and token):
+          
             if (token == Config.verifyToken):
                 response = HttpResponse(status=200)
                 
                 if (mode == "webhook" or mode == "all"):
-                    Profile.setWebhook()
+                    profile.setWebhook()
                     response.write(f'<p>&#9989; Set app ${Config.appId} call to ${Config.webhookUrl()}</p>')
                 if (mode == "profile" or mode == "all"):
-                    Profile.setThread()
+                    profile.setThread()
                     response.write(f'<p>&#9989; Set Messenger Profile of Page ${Config.pageId}</p>')
                 if (mode == "domains" or mode == "all"):
-                    Profile.setWhiteListedDomains()
+                    profile.setWhiteListedDomains()
                     response.write(
                         f'<p>&#9989; Whitelisted domains: ${Config.whitelistedDomains}</p>'
                     )

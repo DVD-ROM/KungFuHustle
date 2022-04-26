@@ -78,6 +78,7 @@ def callSendAPI(sender_psid, response):
 
 def handlePostToWebhook(bodyAsDict):
     # Iterate over every entry - Facebook may batch several entries into one request
+    print("actually handling post to webhook")
     for entry in bodyAsDict['entry']:
         for webhookEvent in entry['messaging']:
 

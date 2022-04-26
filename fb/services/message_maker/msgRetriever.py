@@ -9,9 +9,13 @@ class MsgRetriever:
     def getMessageOfKey(cls, messageKey):
         keyTokens =  messageKey.split(".")
         jsonValue = cls.jsonReplies
-        for token in keyTokens:
-            jsonValue = jsonValue[token]
-        return jsonValue
+    
+        try:
+            for token in keyTokens:
+                jsonValue = jsonValue[token]
+            return jsonValue
+        except KeyError:
+            return "No message found"
 
 
 

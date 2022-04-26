@@ -8,4 +8,3 @@ DEBUG = True
 
 ALLOWED_HOSTS = [os.getenv('LOCAL_ADDRESS'), '127.0.0.1', 'localhost']
 
-print(os.getenv('LOCAL_ADDRESS'))
